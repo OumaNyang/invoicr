@@ -200,7 +200,7 @@ include('functions.php');
 			<div id="invoice_totals" class="padding-right row text-right">
 				<div class="col-xs-6">
 					<div class="input-group form-group-sm textarea no-margin-bottom">
-						<textarea class-"form-control" name="invoice_notes" placeholder="Additional Notes..."></textarea>
+						<textarea class="form-control" name="invoice_notes" placeholder="Additional Notes..."></textarea>
 					</div>
 
 					

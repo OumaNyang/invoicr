@@ -1,8 +1,5 @@
 <?php
-
-
 include_once('includes/config.php');
-
 // show PHP errors
 ini_set('display_errors', 1);
 
@@ -15,48 +12,48 @@ $action = isset($_POST['action']) ? $_POST['action'] : "";
 
 if ($action == 'email_invoice'){
 
-	$fileId = $_POST['id'];
-	$emailId = $_POST['email'];
-	$invoice_type = $_POST['invoice_type'];
-	$custom_email = $_POST['custom_email'];
+	// $fileId = $_POST['id'];
+	// $emailId = $_POST['email'];
+	// $invoice_type = $_POST['invoice_type'];
+	// $custom_email = $_POST['custom_email'];
 
-	require_once('class.phpmailer.php');
+	// require_once('class.phpmailer.php');
 
-	$mail = new PHPMailer(); // defaults to using php "mail()"
+	// $mail = new PHPMailer(); // defaults to using php "mail()"
 
-	$mail->AddReplyTo(EMAIL_FROM, EMAIL_NAME);
-	$mail->SetFrom(EMAIL_FROM, EMAIL_NAME);
-	$mail->AddAddress($emailId, "");
+	// $mail->AddReplyTo(EMAIL_FROM, EMAIL_NAME);
+	// $mail->SetFrom(EMAIL_FROM, EMAIL_NAME);
+	// $mail->AddAddress($emailId, "");
 
-	$mail->Subject = EMAIL_SUBJECT;
-	//$mail->AltBody = EMAIL_BODY; // optional, comment out and test
-	if (empty($custom_email)){
-		if($invoice_type == 'invoice'){
-			$mail->MsgHTML(EMAIL_BODY_INVOICE);
-		} else if($invoice_type == 'quote'){
-			$mail->MsgHTML(EMAIL_BODY_QUOTE);
-		} else if($invoice_type == 'receipt'){
-			$mail->MsgHTML(EMAIL_BODY_RECEIPT);
-		}
-	} else {
-		$mail->MsgHTML($custom_email);
-	}
+	// $mail->Subject = EMAIL_SUBJECT;
+	// //$mail->AltBody = EMAIL_BODY; // optional, comment out and test
+	// if (empty($custom_email)){
+	// 	if($invoice_type == 'invoice'){
+	// 		$mail->MsgHTML(EMAIL_BODY_INVOICE);
+	// 	} else if($invoice_type == 'quote'){
+	// 		$mail->MsgHTML(EMAIL_BODY_QUOTE);
+	// 	} else if($invoice_type == 'receipt'){
+	// 		$mail->MsgHTML(EMAIL_BODY_RECEIPT);
+	// 	}
+	// } else {
+	// 	$mail->MsgHTML($custom_email);
+	// }
 
-	$mail->AddAttachment("./invoices/".$fileId.".pdf"); // attachment
+	// $mail->AddAttachment("./invoices/".$fileId.".pdf"); // attachment
 
-	if(!$mail->Send()) {
-		 //if unable to create new record
-	    echo json_encode(array(
-	    	'status' => 'Error',
-	    	//'message'=> 'There has been an error, please try again.'
-	    	'message' => 'There has been an error, please try again.<pre>'.$mail->ErrorInfo.'</pre>'
-	    ));
-	} else {
-	   echo json_encode(array(
-			'status' => 'Success',
-			'message'=> 'Invoice has been successfully send to the customer'
-		));
-	}
+	// if(!$mail->Send()) {
+	// 	 //if unable to create new record
+	//     echo json_encode(array(
+	//     	'status' => 'Error',
+	//     	//'message'=> 'There has been an error, please try again.'
+	//     	'message' => 'There has been an error, please try again.<pre>'.$mail->ErrorInfo.'</pre>'
+	//     ));
+	// } else {
+	//    echo json_encode(array(
+	// 		'status' => 'Success',
+	// 		'message'=> 'Invoice has been successfully send to the customer'
+	// 	));
+	// }
 
 }
 // download invoice csv sheet
@@ -912,7 +909,7 @@ if($action == 'login') {
 
     $query = "SELECT * FROM `users` WHERE username='$username' AND `password` = '$pass_encrypt'";
 
-    $results = mysqli_query($mysqli,$query) or die (mysqli_error());
+    $results = mysqli_query($mysqli,$query) or die (mysqli_error($mysqli));
     $count = mysqli_num_rows($results);
 
     if($count!="") {

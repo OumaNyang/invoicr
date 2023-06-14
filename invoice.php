@@ -1,6 +1,9 @@
 <?php
 require_once('includes/autoload.php');
 
+// require_once('includes/fpdf/fpdf.php');
+// require_once('includes/rotation/rotation.php');
+
 class invoicr extends FPDF_rotation 
 {
 
