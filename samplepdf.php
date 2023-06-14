@@ -15,7 +15,8 @@
      }
      function generateInvoice()
 {
-    // Set colors
+ 
+     // Set colors
     $headerColor = array(255, 255, 255);
     $tableHeaderColor = array(204, 204, 204);
     $tableRowColors = array(array(236, 236, 236), array(255, 255, 255));
@@ -59,115 +60,123 @@
    $this->Ln();
    
    $this->Ln(10); // Add some spacing
-   
-   // Invoice details
-   $this->SetFont($contentFont, '', 12);
-   $this->Cell(0); // Add an empty cell to align to the left
-   $this->Cell(50, 10, 'REFERENCE:', 0, 0, 'L');
-   $this->Cell(40, 10, 'INVOICE2', 0, 0, 'R');
-   $this->Ln();
-   
-   $this->Cell(0); // Add an empty cell to align to the left
-   $this->Cell(50, 10, 'BILLING DATE:', 0, 0, 'L');
-   $this->Cell(40, 10, '12/11/2021', 0, 0, 'R');
-   $this->Ln();
-   
-   $this->Cell(0); // Add an empty cell to align to the left
-   $this->Cell(50, 10, 'DUE DATE:', 0, 0, 'L');
-   $this->Cell(40, 10, '14/11/2021', 0, 0, 'R');
-   $this->Ln();
-   
-   $this->Ln(10); // Add some spacing
-   
-// Header row
+// On the Right column
 $this->SetFont($headerFont, 'B', 10);
 $this->Cell(90, 5, 'BILLING TO', 'B');
 $this->Ln();
 
-// Content row
 $this->SetFont($contentFont, '', 8);
-$this->Cell(90, 10, 'Yusuf Pangoma', 0, 0, 'L');
-$this->Ln(10);
+$this->Cell(90, 5, 'Yusuf Pangoma', 0, 0, 'L');
+$this->Cell(0); 
 
-$this->Cell(90, 5, 'Arusha, TZ', 0, 0, 'L');
+$this->Cell(90, 5, 'Yusuf.Pangoma@gmail.com', 0, 0, 'L');
+$this->Cell(0);  
+
+$this->Cell(90, 5, '+255782355616', 0, 0, 'L');
+$this->Cell(0);  
+
+$this->Cell(90, 5, 'Dodoma, TZ', 0, 0, 'L');
+$this->Cell(0); 
+
 $this->Ln();
 
-$this->Cell(90, 5, 'Norcross, US', 0, 0, 'L');
-$this->Ln(10);
+// On the left Column
 
+$this->Cell(90); // Empty cell to align to the right
+$this->SetFont($headerFont, 'B', 10);
+$this->Cell(90, 5, 'BILL DETAILS', 'B');
+$this->Ln();
+
+$this->Cell(90); // Empty cell to align to the right
+$this->Cell(30, 7, 'REFERENCE:', 0, 0, 'R');
+$this->Cell(0);  
+$this->Cell(40, 7, 'INVOICE=752', 0, 0, 'R');
+$this->Ln();
+
+$this->Cell(90); // Empty cell to align to the right
+$this->Cell(50, 7, 'BILLING DATE:', 0, 0, 'R');
+$this->Cell(0);  
+$this->Cell(80, 7, '12/06/2023', 0, 0, 'R');
+$this->Ln();
+
+$this->Cell(90); // Empty cell to align to the right
+$this->Cell(50, 7, 'DUE DATE:', 0, 0, 'R');
+$this->Cell(0); 
+$this->Cell(80, 7, '12/06/2023', 0, 0, 'R');
+$this->Ln();
+ 
 $this->Ln(5); // Add some spacing
+// Display the product and invoice details
 
 
-    // Customer shipping details
-    $this->SetFont($headerFont, 'B', 12);
-    $this->Cell(50, 10, 'DUE DATE:');
-    $this->Cell(40, 10, '14/11/2021');
-    $this->Ln();
+$this->SetFont($contentFont, '', 10);
+$this->SetFillColor($tableHeaderColor[0], $tableHeaderColor[1], $tableHeaderColor[2]);
+$this->SetTextColor(65);
 
-    // TABLE HEADER
-    $this->SetFont($headerFont, 'B', 12);
-    $this->SetFillColor($tableHeaderColor[0], $tableHeaderColor[1], $tableHeaderColor[2]);
-    $this->SetTextColor(0);
-    $this->Cell($columnWidths[0], 10, 'PRODUCT', 1, 0, 'C', true);
-    $this->Cell($columnWidths[1], 10, 'AMOUNT', 1, 0, 'C', true);
-    $this->Cell($columnWidths[2], 10, 'VAT', 1, 0, 'C', true);
-    $this->Cell($columnWidths[3], 10, 'PRICE', 1, 0, 'C', true);
-    $this->Cell($columnWidths[4], 10, 'DISCOUNT', 1, 0, 'C', true);
-    $this->Cell($columnWidths[5], 10, 'TOTAL', 1, 1, 'C', true);
+$this->SetFont($contentFont, 'B', 10);
 
-    // TABLE ROWS
-    $this->SetFont($contentFont, '', 12);
-    $rowCount = 0;
+$this->Cell(90, 10, 'Description', 0, 0, 'C', true);
+$this->Cell(35, 10, 'Quantity', 0, 0, 'C', true);
+$this->Cell(35, 10, 'Unit Price', 0, 0, 'C', true);
+$this->Cell(35, 10, 'TOTAL', 0, 1, 'C', true);
 
-    // Example product data
-    $productData = array(
-        array('Product Name 1', '2', '$10.00', '$2.00', '$1.00', '$18.00'),
-        array('Product Name 2', '1', '$5.00', '$0.50', '$0.00', '$4.50'),
-        array('Product Name 3', '3', '$8.00', '$1.20', '$0.80', '$26.40')
-    );
+$this->SetFillColor($tableRowColors[0][0], $tableRowColors[0][1], $tableRowColors[0][2]);
+$this->SetTextColor(0);
+$this->SetDrawColor(255);
+$this->SetFont($contentFont, '', 9);
+$this->Cell(90, 8, 'Product Six - This is a sample product six.', 'LTR', 0, 'L', true);
+$this->Cell(35, 8, '11', 'LTR', 0, 'C', true);
+$this->Cell(35, 8, '$ 12.00', 'LTR', 0, 'C', true);
+$this->Cell(35, 8, '$ 132.00', 'LTR', 0, 'C', true);
 
-    foreach ($productData as $row) {
-        $rowColor = $tableRowColors[$rowCount % 2];
-        $this->SetFillColor($rowColor[0], $rowColor[1], $rowColor[2]);
+$this->SetFillColor($tableRowColors[1][0], $tableRowColors[1][1], $tableRowColors[1][2]);
+$this->SetTextColor(0);
+$this->SetDrawColor(255);
+$this->SetFont($contentFont, 'B', 10);
+$this->Cell(120, 8, ' ', 'LR', 0, 'L', true);
+$this->Cell(40, 8, 'Total', 1, 0, 'R', true);
+$this->Cell(35, 8, '$ 132.00', 1, 1, 'C', true);
 
-        for ($i = 0; $i < count($row); $i++) {
-            $this->Cell($columnWidths[$i], 10, $row[$i], 1, 0, 'C', true);
-        }
+$this->SetFillColor(192, 192, 192); // Gray background
+$this->SetTextColor(0);
+$this->SetDrawColor(255);
+$this->SetFont($contentFont, 'B', 10);
+$this->Cell(120, 8, ' ', 'LR', 0, 'L', true);
+$this->Cell(40, 8, 'Discount', 1, 0, 'R', true);
+$this->Cell(35, 8, '$ 0.00', 1, 1, 'C', true);
 
-        $this->Ln();
-        $rowCount++;
-    }
+$this->SetFillColor(250, 250, 249); // Gray background
+$this->SetTextColor(0);
+$this->SetDrawColor(255);
+$this->SetFont($contentFont, 'B', 10);
+$this->Cell(120, 8, ' ', 'LR', 0, 'L', true);
+$this->Cell(40, 8, 'VAT/Tax (16%)', 1, 0, 'R', true);
+$this->Cell(35, 8, '$ 0.00', 1, 1, 'C', true);
 
-    $this->Ln(10); // Add some spacing
+ 
+$this->SetFillColor(25, 20, 250); // Blue background
+$this->SetTextColor(255);
+$this->SetDrawColor(255);
+$this->SetFont($contentFont, 'B', 10);
+$this->Cell(120, 8, ' ', 'LR', 0, 'L', true);
+$this->Cell(40, 8, 'Net Total ', 1, 0, 'R', true);
+$this->Cell(35, 8, '$ 216.70', 1, 1, 'C', true);
 
-    // Subtotal, Discount, and VAT
-    $this->SetFont($headerFont, 'B', 12);
-    $this->Cell(90, 10, 'Subtotal');
-    $this->Cell(0, 10, '$48.90');
-    $this->Ln();
+$this->SetFillColor(245, 250, 255); // Blue background
+$this->SetTextColor(0);
+$this->SetDrawColor(255);
+$this->SetFont($contentFont, 'B', 10);
+$this->Cell(120, 8, ' ', 'LR', 0, 'L', true);
+$this->Cell(40, 8, 'Paid', 1, 0, 'R', true);
+$this->Cell(35, 8, '$ 216.70', 1, 1, 'C', true);
 
-    $this->Cell(90, 10, 'Discount');
-    $this->Cell(0, 10, '$2.80');
-    $this->Ln();
-
-    $this->Cell(90, 10, 'VAT (10%)');
-    $this->Cell(0, 10, '$4.61');
-    $this->Ln();
-
-    $this->Ln(10); // Add some spacing
-
-    // Total due
-    $this->SetFont($headerFont, 'B', 12);
-    $this->Cell(90, 10, 'Total Due');
-    $this->Cell(0, 10, '$51.71');
-    $this->Ln();
-
-    $this->Ln(10); // Add some spacing
-
-    // Paid
-    $this->SetFont($headerFont, 'B', 12);
-    $this->Cell(30, 10, 'PAID');
-    $this->Ln();
+$this->SetFillColor(25, 20, 250); // Blue background
+$this->SetTextColor(255);
+$this->SetDrawColor(255);
+$this->SetFont($contentFont, 'B', 10);
+$this->Cell(120, 8, ' ', 'LR', 0, 'L', true);
+$this->Cell(40, 8, 'Total Due', 1, 0, 'R', true);
+$this->Cell(35, 8, '$ 216.70', 1, 1, 'C', true);
 
     // CUSTOMER NOTES
     $this->SetFont($headerFont, 'B', 12);
