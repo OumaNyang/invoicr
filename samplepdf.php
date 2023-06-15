@@ -103,45 +103,48 @@ $this->Cell(90); // Empty cell to align to the right
 $this->Cell(50, 7, 'DUE DATE:', 0, 0, 'R');
 $this->Cell(0); 
 $this->Cell(80, 7, '12/06/2023', 0, 0, 'R');
-$this->Ln();
  
-$this->Ln(5); // Add some spacing
+ 
+$this->Ln(10); // Add some spacing
 // Display the product and invoice details
 
 
-$this->SetFont($contentFont, '', 10);
-$this->SetFillColor($tableHeaderColor[0], $tableHeaderColor[1], $tableHeaderColor[2]);
-$this->SetTextColor(65);
+// $this->SetFont($headerFont, '', 10);
+// $this->SetFillColor($tableHeaderColor[0], $tableHeaderColor[1], $tableHeaderColor[2]);
+// // $this->SetTextColor(65);
 
-$this->SetFont($contentFont, 'B', 10);
+// $this->SetFont($headerFont, 'B', 10);
 
-$this->Cell(90, 10, 'Description', 0, 0, 'C', true);
-$this->Cell(35, 10, 'Quantity', 0, 0, 'C', true);
-$this->Cell(35, 10, 'Unit Price', 0, 0, 'C', true);
-$this->Cell(35, 10, 'TOTAL', 0, 1, 'C', true);
+// $this->Cell(90, 8, 'Description', 0, 0, 'C', true);
+// $this->Cell(35, 8, 'Quantity', 0, 0, 'C', true);
+// $this->Cell(35, 8, 'Unit Price', 0, 0, 'C', true);
+// $this->Cell(35, 8, 'TOTAL', 0, 1, 'C', true);
 
-$this->SetFillColor($tableRowColors[0][0], $tableRowColors[0][1], $tableRowColors[0][2]);
-$this->SetTextColor(0);
-$this->SetDrawColor(255);
-$this->SetFont($contentFont, '', 9);
-$this->Cell(90, 8, 'Product Six - This is a sample product six.', 'LTR', 0, 'L', true);
-$this->Cell(35, 8, '11', 'LTR', 0, 'C', true);
-$this->Cell(35, 8, '$ 12.00', 'LTR', 0, 'C', true);
-$this->Cell(35, 8, '$ 132.00', 'LTR', 0, 'C', true);
+// $this->SetFillColor($tableRowColors[0][0], $tableRowColors[0][1], $tableRowColors[0][2]);
+// $this->SetTextColor(0);
+// $this->SetDrawColor(255);
+// $this->SetFont($contentFont, '', 9);
+// $this->Cell(90, 8, 'Product Six - This is a sample product six.', 'LTR', 0, 'L', true);
+// $this->Cell(35, 8, '11', 'LTR', 0, 'C', true);
+// $this->Cell(35, 8, '$ 12.00', 'LTR', 0, 'C', true);
+// $this->Cell(35, 8, '$ 132.00', 'LTR', 0, 'C', true);
 
-$this->SetFillColor($tableRowColors[1][0], $tableRowColors[1][1], $tableRowColors[1][2]);
-$this->SetTextColor(0);
-$this->SetDrawColor(255);
-$this->SetFont($contentFont, 'B', 10);
+
+
+// $this->Cell(120, 8, ' ', 'LR', 0, 'L', true);
+// $this->SetFillColor($tableRowColors[1][0], $tableRowColors[1][1], $tableRowColors[1][2]);
+// $this->SetTextColor(0);
+// $this->SetDrawColor(255);
+// $this->SetFont($contentFont, 'B', 10);
+// $this->Cell(35, 8, 'Total', 1, 0, 'R', true);
+// $this->Cell(35, 8, '$ 132.00', 1, 1, 'C', true);
+
+
 $this->Cell(120, 8, ' ', 'LR', 0, 'L', true);
-$this->Cell(40, 8, 'Total', 1, 0, 'R', true);
-$this->Cell(35, 8, '$ 132.00', 1, 1, 'C', true);
-
 $this->SetFillColor(192, 192, 192); // Gray background
 $this->SetTextColor(0);
 $this->SetDrawColor(255);
 $this->SetFont($contentFont, 'B', 10);
-$this->Cell(120, 8, ' ', 'LR', 0, 'L', true);
 $this->Cell(40, 8, 'Discount', 1, 0, 'R', true);
 $this->Cell(35, 8, '$ 0.00', 1, 1, 'C', true);
 
@@ -153,37 +156,44 @@ $this->Cell(120, 8, ' ', 'LR', 0, 'L', true);
 $this->Cell(40, 8, 'VAT/Tax (16%)', 1, 0, 'R', true);
 $this->Cell(35, 8, '$ 0.00', 1, 1, 'C', true);
 
- 
+$this->Cell(120, 8, ' ', 'LR', 0, 'L', true);
 $this->SetFillColor(25, 20, 250); // Blue background
 $this->SetTextColor(255);
 $this->SetDrawColor(255);
 $this->SetFont($contentFont, 'B', 10);
-$this->Cell(120, 8, ' ', 'LR', 0, 'L', true);
 $this->Cell(40, 8, 'Net Total ', 1, 0, 'R', true);
 $this->Cell(35, 8, '$ 216.70', 1, 1, 'C', true);
 
-$this->SetFillColor(245, 250, 255); // Blue background
+$this->SetFillColor(250, 250, 249); // Gray background
 $this->SetTextColor(0);
 $this->SetDrawColor(255);
 $this->SetFont($contentFont, 'B', 10);
 $this->Cell(120, 8, ' ', 'LR', 0, 'L', true);
-$this->Cell(40, 8, 'Paid', 1, 0, 'R', true);
-$this->Cell(35, 8, '$ 216.70', 1, 1, 'C', true);
+$this->Cell(40, 8, 'PAID', 1, 0, 'R', true);
+$this->Cell(35, 8, '$ 0.00', 1, 1, 'C', true);
 
+
+$this->Cell(120, 8, ' ', 'LR', 0, 'L', true);
 $this->SetFillColor(25, 20, 250); // Blue background
 $this->SetTextColor(255);
 $this->SetDrawColor(255);
 $this->SetFont($contentFont, 'B', 10);
-$this->Cell(120, 8, ' ', 'LR', 0, 'L', true);
 $this->Cell(40, 8, 'Total Due', 1, 0, 'R', true);
 $this->Cell(35, 8, '$ 216.70', 1, 1, 'C', true);
 
+$this->Ln(10);
+
     // CUSTOMER NOTES
+    $this->SetFillColor(230, 190, 200); // Blue background
+
+    $this->SetTextColor(0);
+    $this->SetDrawColor(0);
+
     $this->SetFont($headerFont, 'B', 12);
-    $this->Cell(30, 10, 'CUSTOMER NOTES');
-    $this->Ln();
+    $this->Cell(80, 8, 'CUSTOMER NOTES',0,1, 'C', true);
+    $this->Ln(2);
     $this->SetFont($contentFont, '', 12);
-    $this->MultiCell(0, 10, 'Completed!');
+    $this->MultiCell(0, 10, 'Your Invoice is due for payment .Please swetlle thwe invoice within 2 days to avoid penalties and inconvenience');
 
     // PAYMENT INFORMATION
     $this->SetFont($headerFont, 'B', 12);
