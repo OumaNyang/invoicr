@@ -31,7 +31,7 @@ $this->SetFont($headerFont, 'B', 30);
 $this->SetFillColor($headerColor[0], $headerColor[1], $headerColor[2]);
 $this->SetTextColor(73, 2, 144); 
 $this->Cell(0); // Add an empty cell to align to the left
-$this->Cell(0, 15, 'INVOICE', 0, 0, 'R', true); // Align to the right
+$this->Cell(0, 15, 'QUOTATION', 0, 0, 'R', true); // Align to the right
 
    
 $this->SetXY(145,26); 
@@ -39,15 +39,15 @@ $this->SetFillColor(250, 250, 250);
 $this->SetTextColor(0);
 $this->SetDrawColor(255);
  $this->SetFont($contentFont,'B',9);
-$this->Cell(30, 7, 'Invoice Refference', 'T', 0, 'L', true); 
-$this->Cell(30, 7, 'VOITIX56934', 'T', 1, 'C', true); 
+$this->Cell(30, 7, 'Quotation Refference', 'T', 0, 'L', true); 
+$this->Cell(30, 7, 'VQT35625', 'T', 1, 'C', true); 
 
 $this->SetXY(145,33); 
 $this->SetFillColor(250, 250, 250);
 $this->SetTextColor(0);
 $this->SetDrawColor(255);
  $this->SetFont($contentFont,'B',9);
- $this->Cell(30, 7, 'Invoice Date', 'T', 0, 'R', true); 
+ $this->Cell(30, 7, 'Quotation Date', 'T', 0, 'R', true); 
  $this->Cell(30, 7, '14/06/2023', 'T', 1, 'C', true); 
 
 $this->SetXY(145,40); 
@@ -58,13 +58,13 @@ $this->SetFont($contentFont,'B',9);
 $this->Cell(30, 7, 'Invoice Due', 'T', 0, 'R', true);
 $this->Cell(30, 7, '18/06/2023', 'T', 1, 'C', true);
 
-$this->SetXY(145,47); 
-$this->SetFillColor(73, 2, 144);
-$this->SetTextColor(255);
-$this->SetDrawColor(255);
-$this->SetFont($contentFont,'B',9);
-$this->Cell(30, 7, 'Invoice Status', 'T', 0, 'R', true);
-$this->Cell(30, 7, 'NOT PAID', 'T', 1, 'C', true);
+// $this->SetXY(145,47); 
+// $this->SetFillColor(73, 2, 144);
+// $this->SetTextColor(255);
+// $this->SetDrawColor(255);
+// $this->SetFont($contentFont,'B',9);
+// $this->Cell(30, 7, 'Invoice Status', 'T', 0, 'R', true);
+// $this->Cell(30, 7, 'NOT PAID', 'T', 1, 'C', true);
 
  
 $this->Ln(10);  
@@ -72,7 +72,7 @@ $this->SetFont($headerFont, '', 9);
 $this->SetTextColor(0);
 
 // Logo
-$this->Image('images/logo.png', 10, 10, 20); // Replace with the path to your company logo
+$this->Image('../images/logo.png', 10, 10, 20); // Replace with the path to your company logo
 
 $this->SetXY(40, 9);
 $this->Cell(0, 7, 'ParkSuites Towers, 4th Floor,');
@@ -93,7 +93,6 @@ $this->SetX(40);
 $this->Cell(0, 7, 'PIN: P5456625555T');
 $this->Ln();
 
-
 $this->Ln(10);
 $this->SetX(10);
 $this->SetFillColor(192, 192, 192);
@@ -103,7 +102,6 @@ $this->SetFont($headerFont, 'B', 9);
 $this->Cell(50, 7, 'Billing Information', 0, 0, 'L', true); 
 $this->Cell(0, 7, '', 0, 1); 
 
-  
 $this->SetX(10);
 $this->SetFillColor(251, 253, 255);
 $this->SetTextColor(0);
@@ -235,10 +233,11 @@ $this->SetFillColor(192, 192, 192);
 $this->SetTextColor(0);
 $this->SetDrawColor(0);
 $this->SetFont($headerFont, 'B', 9);
-$this->Cell(80, 8, 'CUSTOMER NOTES',0,1, 'C', true);
+$this->Cell(80, 7, 'CUSTOMER NOTES',0,1, 'C', true);
 $this->Ln(2);
 $this->SetFont($contentFont, '', 9);
-$this->MultiCell(0, 10, 'Your Invoice is due for payment .Please settle the invoice within 2 days to avoid penalties and inconvenience');
+$this->MultiCell(0, 9, 'If you need a signed and stamped Invoice please contact us on info@novel.co.ke');
+$this->MultiCell(0, 9, 'Your Invoice is due for payment .Please settle the invoice within 2 days to avoid penalties and inconvenience');
 
 // PAYMENT INFORMATION
 $this->SetDrawColor(192, 192, 192);
@@ -247,7 +246,7 @@ $this->SetFillColor(192, 192, 192);
 $this->SetTextColor(0);
 $this->SetDrawColor(0);
 $this->SetFont($headerFont, 'B', 9);
-$this->Cell(80, 8, 'PAYMENT INFORMATION',0,1, 'C', true);
+$this->Cell(80,7, 'PAYMENT INFORMATION',0,1, 'C', true);
 $this->Ln(2);
 $this->SetFont($contentFont, '', 9);
  
@@ -255,26 +254,41 @@ $this->SetFillColor(250, 250, 250);
 $this->SetTextColor(0);
 $this->SetDrawColor(255);
 $this->SetFont($contentFont, 'B', 9);
-$this->Cell(40, 8, 'Payment Mode', 'BT', 0, 'L', true);  
-$this->Cell(35, 8, 'Bank transfer', 'BT', 1, 'C', true);
+$this->Cell(40, 7, 'Payment Mode', 'BT', 0, 'L', true);  
+$this->Cell(35, 7, 'Bank transfer', 'BT', 1, 'C', true);
    
 $this->SetFillColor(250, 250, 250); 
 $this->SetTextColor(0);
 $this->SetDrawColor(255);
 $this->SetFont($contentFont, 'B', 9);
-$this->Cell(40, 8, 'Payment Date',  'BT', 0, 'L', true);  
-$this->Cell(35, 8, '25/04/2018', 'BT', 1, 'C', true);
+$this->Cell(40, 7, 'Payment Date',  'BT', 0, 'L', true);  
+$this->Cell(35, 7, '25/04/2018', 'BT', 1, 'C', true);
 
 $this->SetFillColor(250, 250, 250); 
 $this->SetTextColor(0);
 $this->SetDrawColor(255);
 $this->SetFont($contentFont, 'B', 9);
-$this->Cell(40, 8, 'Payment ID', 'BT', 0, 'L', true);  
-$this->Cell(35, 8, 'TXN65757GFHJ', 'BT', 1, 'C', true);  
+$this->Cell(40, 7, 'Payment ID', 'BT', 0, 'L', true);  
+$this->Cell(35, 7, 'TXN65757GFHJ', 'BT', 1, 'C', true);  
  
 $this->Ln();
  
 
+$this->SetDrawColor(192, 192, 192);
+$this->Line(10, $this->GetY(), $this->GetPageWidth() - 10, $this->GetY());
+$this->SetFillColor(255, 255, 255); 
+$this->SetTextColor(0);
+$this->SetDrawColor(0);
+$this->SetFont($headerFont, 'B', 9);
+$this->Cell(80,7, 'Prepared by',0,1, 'L', true);
+$this->Ln(2);
+$this->SetFont($contentFont, '', 9);
+ 
+// $this->SetFillColor(250, 250, 250); 
+$this->SetTextColor(0);
+ $this->SetFont($contentFont, '', 9);
+$this->Cell(40, 7, 'Ouma Nyang ,Software Engineer', 0,0, 'L', true);  
+ 
 $this->SetY(-25);
 
  // Set line color to gray (adjust RGB values as needed)
@@ -294,11 +308,14 @@ $this->SetY(-25);
 }
 
 }
- // Usage Example
- $invoice = new Invoice();
- $invoice->AddPage();
- $invoice->generateInvoice();
- $invoice->Output();
+$invoice = new Invoice();
+$invoice->AddPage();
+$invoice->generateInvoice();
+// $invoice->Output('invoice.pdf', 'D');
+$invoice->Output();
+
+
+
  
 
 ?>
