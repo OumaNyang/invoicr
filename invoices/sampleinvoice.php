@@ -325,12 +325,17 @@ $this->SetY(-25);
 }
 
 }
+ 
+$folderPath = './uploads/';  
+$fileName = 'invoice'.date('is').'.pdf'; 
+if (!file_exists($folderPath)) {
+    mkdir($folderPath, 0777, true);
+}
 $invoice = new Invoice();
 $invoice->AddPage();
 $invoice->generateInvoice();
-// $invoice->Output('invoice.pdf', 'D');
+$invoice->Output($folderPath . $fileName, 'F');  
 $invoice->Output();
-
 
 
  
