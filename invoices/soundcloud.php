@@ -8,7 +8,7 @@ $invoice = new invoicr("A4","€","en");
 //Set number format
 $invoice->setNumberFormat(',','.');
 //Set your logo
-$invoice->setLogo("images/soundcloud.png",180,100);
+$invoice->setLogo("images/logo.png",180,100);
 //Set theme color
 $invoice->setColor("#f7540e");
 //Set type
